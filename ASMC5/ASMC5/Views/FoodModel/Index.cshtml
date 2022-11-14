@@ -1,0 +1,79 @@
+﻿@model IEnumerable<WebMonAn.Models.FoodModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var pagingModel = (PagingModel)ViewData["PagingModel"];
+}
+
+
+<div>
+    <h1>Index</h1>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TenMonAn)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GiaMonAn)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.MoTa)
+                    </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.TrangThai)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsDelete)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.categoryModel)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TenMonAn)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GiaMonAn)
+                    </td>
+                    <td>
+                        <img src="~/Uploads/@item.Image" style="width:80px; height:70px;"/>
+                            @*@Html.DisplayFor(modelItem => item.Image)*@
+                        </td>
+                        @*<td>
+                            @Html.DisplayFor(modelItem => item.MoTa)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TrangThai)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsDelete)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.categoryModel.CategoryId)
+                    </td>
+                    <td>
+                        <a asp-action="Update" asp-route-id="@item.MonAnId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.MonAnId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.MonAnId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <partial name="_Paging" model="@pagingModel" />
+</div>

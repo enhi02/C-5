@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Lab402.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+
+<div class="col-LG-12 m-auto">
+    <div class="card">
+        <div class="card-header text-uppercase font-weight-bold">
+            <i class="fas fa-list"></i> Employees
+        </div>
+        <div class="card-body p-0">
+            <table class="table table-bordered table-hover">
+                <thead class="text-center bg-info text-white">
+                    <tr>
+                        <th scope="col" class="align-middle" rowspan="2">@Html.DisplayNameFor(model => model.FullName)</th>
+                        <th scope="col" class="align-middle" rowspan="2">@Html.DisplayNameFor(model => model.EmpCode)</th>
+                        <th scope="col" class="align-middle" rowspan="2">@Html.DisplayNameFor(model => model.Position)</th>
+                        <th scope="col" class="align-middle" rowspan="2">@Html.DisplayNameFor(model => model.OfficeLocation)</th>
+                        <th scope="col" class="align-middle" rowspan="2">
+                            <a asp-action="Create">
+                                <input type="submit" value="Create" class="btn btn-success text-white" />
+                            </a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.EmpCode)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Position)</td>
+                            <td>@Html.DisplayFor(modelItem => item.OfficeLocation)</td>
+                            <td class="align-middle">
+                                <a asp-action="Details" asp-route-id="@item.EmployeeId"><i class="fas fa-list"></i></a> |
+                                <a asp-action="Edit" asp-route-id="@item.EmployeeId"><i class="fas fa-pen"></i></a>  |
+                                <a asp-action="Delete" asp-route-id="@item.EmployeeId"><i class="fas fa-dumpster" style="color: red"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

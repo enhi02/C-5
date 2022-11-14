@@ -1,0 +1,117 @@
+﻿@model IEnumerable<PS18441_PTH_thibaove.Models.Root>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RootID)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.ArticleID)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.TextID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Head)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.PublishTime)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.HitCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CommentCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.URL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChannelID)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.HeadImageUrl)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.ArticleType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ThumbImageUrl)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RootID)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.ArticleID)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.TextID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Head)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.PublishTime)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.HitCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommentCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.URL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChannelID)
+            </td>*@
+            <td>
+                <img src="@item.HeadImageUrl" style="width:200px"/>
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.HeadImageUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArticleType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThumbImageUrl)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @*<a asp-action="Edit" asp-route-id="@item.RootID">Edit</a> |*@
+                <a asp-action="Details" asp-route-id="@item.RootID">Details</a> |
+                @*<a asp-action="Delete" asp-route-id="@item.RootID">Delete</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

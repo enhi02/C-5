@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Lab6._2.Models.Reservation>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+
+    <a asp-action="Create">
+        <button class="bg-primary" type="button">Add Reservation</button>
+    </a>
+    <a asp-action="GetReservation">
+        <button class="bg-success" type="button">Get Reservation</button>
+    </a>
+<hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndLocation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndLocation)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">
+                    <img src="~/img/edit.png" />
+                </a>
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">
+                    <img src="~/img/edit.png" />
+                </a>
+            </td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.Id">
+                    <img src="~/img/xoa.png" />
+                </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

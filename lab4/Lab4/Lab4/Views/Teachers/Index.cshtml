@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Lab4.Models.Teacher>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<div class="col-LG-12 m-auto">
+    <div class="card">
+        <div class="card-header text-uppercase font-weight-bold">
+            <i class="fas fa-list"></i> Students
+        </div>
+        </br>
+        <div class="form-group col-3">
+            <a asp-action="Create">
+                <input type="submit" value="Create" class="btn btn-primary text-white" />
+            </a>
+        </div>
+        <div class="card-body p-0">
+            <table class="table table-bordered table-hover">
+                <thead class="text-center bg-info text-white">
+                    <tr>
+                        <th scope="col" class="align-middle" rowspan="2">@Html.DisplayNameFor(model => model.Name)</th>
+                        <th scope="col" class="align-middle" rowspan="2">@Html.DisplayNameFor(model => model.Skills)</th>
+                        <th scope="col" class="align-middle" rowspan="2">@Html.DisplayNameFor(model => model.TotalStudents)</th>
+                        <th scope="col" class="align-middle" rowspan="2">@Html.DisplayNameFor(model => model.Salary)</th>
+                        <th scope="col" class="align-middle" rowspan="2">@Html.DisplayNameFor(model => model.AddOn)</th>
+                        <th scope="col" class="align-middle" rowspan="2">Details</th>
+                        <th scope="col" class="align-middle" rowspan="2">Update</th>
+                        <th scope="col" class="align-middle" rowspan="2">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Skills)</td>
+                            <td>@Html.DisplayFor(modelItem => item.TotalStudents)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Salary)</td>
+                            <td>@Html.DisplayFor(modelItem => item.AddOn)</td>
+                            <td class="align-middle"><a asp-action="Details" asp-route-id="@item.TeacherId">Details</a></td>
+                            <td class="align-middle"><a asp-action="Edit" asp-route-id="@item.TeacherId">Update</a></td>
+                            <td class="align-middle"><button ><a class="text-dark" asp-action="Delete" asp-route-id="@item.TeacherId">Delete</a></button></td>
+                            
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

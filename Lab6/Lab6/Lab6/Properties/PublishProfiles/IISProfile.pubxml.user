@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAVqSUZZpUAEOfMezwXD4MqQAAAAACAAAAAAAQZgAAAAEAACAAAADUKg/NXnrYexZwj11vj84hxeqyhsY6dbboIzPaIuKHjQAAAAAOgAAAAAIAACAAAACo3hUQ5nZ0Ap9SRRXX3jp3oDIAEYAdsGHUk1xBGBkriiAAAACj8KSMo6CZzuJbjkBzkxoWTH9ju9xgPco0MC0XDYACbkAAAAAwRBWzAxH1VFUXi0iof2FcH9w8vmw79feJalDHQsXtBbVh65leL1edpQtUvip8tad9IOBBdr694xy8g2w/LHhf</EncryptedPassword>
+    <History>True|2022-06-19T15:16:21.4974571Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=SQL8002.site4now.net%3bInitial Catalog=db_a88b73_sa%3bUser Id=db_a88b73_sa_admin%3bPassword=hien1234</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="Lab6.Models.DataContext">
+      <Value>Data Source=SQL8002.site4now.net%3bInitial Catalog=db_a88b73_sa%3bUser Id=db_a88b73_sa_admin%3bPassword=hien1234</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

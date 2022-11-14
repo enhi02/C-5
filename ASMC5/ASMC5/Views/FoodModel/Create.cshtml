@@ -1,0 +1,82 @@
+﻿@model WebMonAn.Models.FoodModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="ml-5">
+    <h1>Create</h1>
+
+    <h4>FoodModel</h4>
+</div>
+<hr />
+<div class="row" style="margin-left : 100px">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            @* chưa  enctype="multipart/form-data" hiểu *@
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TenMonAn" class="control-label"></label>
+                <input asp-for="TenMonAn" class="form-control" />
+                <span asp-validation-for="TenMonAn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GiaMonAn" class="control-label"></label>
+                <input asp-for="GiaMonAn" class="form-control" />
+                <span asp-validation-for="GiaMonAn" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+            <label asp-for="Image" class="control-label"></label>
+            <input asp-for="Image" class="form-control" />
+            <span asp-validation-for="Image" class="text-danger"></span>
+        </div>*@
+            <div class="form-group ">
+                <label asp-for="ImageFile" class="control-label"></label>
+                <div class="custom-file">
+                    <input asp-for="ImageFile" type="file" class="custom-file-input" />
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                </div>
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+                @*<img src="~/Uploads/@Model.ExistingImage" class="img-thumbnail" height="80" width="80" asp-append-version="true" />*@
+            </div>
+            <div class="form-group">
+                <label asp-for="MoTa" class="control-label"></label>
+                <input asp-for="MoTa" class="form-control" />
+                <span asp-validation-for="MoTa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <select asp-for="Category" class="form-control" asp-items="ViewBag.Category"></select>
+            </div>
+            <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="TrangThai" /> @Html.DisplayNameFor(model => model.TrangThai)
+            </label>
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="IsDelete" /> @Html.DisplayNameFor(model => model.IsDelete)
+            </label>
+        </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

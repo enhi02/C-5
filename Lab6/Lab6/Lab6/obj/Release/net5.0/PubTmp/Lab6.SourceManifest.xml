@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="D:\Skyfolder\Desktop\c5\Lab6\Lab6\Lab6\obj\Release\net5.0\PubTmp\Out\" />
+  <dbfullsql path="D:\Skyfolder\Desktop\c5\Lab6\Lab6\Lab6\obj\Release\net5.0\PubTmp\EFSQLScripts\Lab6.Models.DataContext.sql" />
+</sitemanifest>

@@ -1,0 +1,20 @@
+﻿
+@model List<Bai2.Models.Product>;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @{
+        foreach (var item in Model)
+        {
+            <div>
+                <p>
+                    Id: @item.Id &nbsp;
+                    Name: @item.Name
+                </p>
+            </div>
+        }
+    }
+</div>

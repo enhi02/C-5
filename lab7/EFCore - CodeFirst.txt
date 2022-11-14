@@ -1,0 +1,65 @@
+Nutget:
+<PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.17">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+<PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+
+Onconfig:
+ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            var builder = new ConfigurationBuilder()
+                                    .SetBasePath(Directory.GetCurrentDirectory())
+                                    .AddJsonFile("appsettings.json");
+            var configuration = builder.Build();
+            optionsBuilder.UseSqlServer(configuration["ConnectionStrings:DefaultConnection"]);
+        }
+public DataContext(DbContextOptions<DataContext> options): base(options)
+        {
+            
+        }
+
+StartUp AddDbContext:
+services.AddDbContext<DataContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+
+Connection:
+,
+  "ConnectionStrings": {
+    "DefaultConnection": "Data Source=DESKTOP-66U3G81;Initial Catalog=C5_Lab6_bai1;Integrated Security=True"
+  }
+	
+Server=LAPTOP-BGDCBQC8\\TANHIEN;Database=;uid=sa;pwd=01865354554Hien;
+
+Server=LAPTOP-BGDCBQC8\\TANHIEN;Initial Catalog=;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False
+
+Tạo & chạy Mifration:
+    + Dùng PMC:  
+	   add-migration CompanyDB
+
+    + Dùng CLI:
+           dotnet ef migrations add CompanyDB
+
+    + Tạo Database:
+	   update-database –verbose
+    
+    [Authorize]
+	
+    [AllowAnonymous]
+
+public static class SessionHelper
+    {
+        public static void SetObjectAsJson(this ISession session, string key, object value)
+        {
+            session.SetString(key, JsonConvert.SerializeObject(value));
+        }
+
+        public static T GetObjectFromJson<T>(this ISession session, string key)
+        {
+            var value = session.GetString(key);
+            return value == null ? default(T) : JsonConvert.DeserializeObject<T>(value);
+        }
+    }
